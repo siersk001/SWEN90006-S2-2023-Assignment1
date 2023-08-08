@@ -172,7 +172,7 @@ Some tips to managing the assignment, in particular, the equivalence partitionin
 
 ### Late submission policy
 
-If you require an extension, please contact Tim ([`najam.nazar@unimelb.edu.au`](mailto:najam.nazar@unimelb.edu.au)) to discuss. Having assessments due for other subjects is not a valid reason for an extension.
+If you require an extension, please contact Najam ([`najam.nazar@unimelb.edu.au`](mailto:najam.nazar@unimelb.edu.au)) to discuss. Having assessments due for other subjects is not a valid reason for an extension.
 
 By default, everyone is implicitly granted an extension of up to 7 days, but with a penalty of 10% (2 marks) per day that the assignment is submitted late. So, if you are falling behind, you may want to consider submitted 1-2 days late if you feel you can do enough to make up the 2-4 marks. 
 
