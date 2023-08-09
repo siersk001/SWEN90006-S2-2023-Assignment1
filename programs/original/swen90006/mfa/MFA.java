@@ -309,8 +309,6 @@ public class MFA{
 				&& faceRecognised.get(username).equals(facialId)) {
 			authenticationStatus.put(username, AuthenticationStatus.TRIPLE);
 		}
-		System.out.println("Authentication status is 1: "+authenticationStatus.get(username));
-		System.out.println("Authentication status is 2: "+authenticationStatus.get(deviceID));
 		return authenticationStatus.get(username);
 	}
 
