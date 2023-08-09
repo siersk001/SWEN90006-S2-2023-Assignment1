@@ -41,9 +41,11 @@ import java.util.ArrayList;
  *   device (responded to a push notification)
  *
  * or
- * - For admin or security staff, they have authentication status TRIPLE,
- *   have registered a device, have validated access to the device and facial
- *   recogination as an extra layer. 
+ * - They are authenticated to autehntication status TRIPLE, have 
+ *   registered a device, have validated access to the device and facial
+ *   recogination as an extra layer. FacialRecognition could be enabled
+ *   and disabled. In the start it will be disabled and once enabled, the
+ *   the user can use it.
  *
  * Once logged in, a user can access their own data, as described below,
  * provided that they are correctly authenticated.
@@ -169,13 +171,10 @@ public class MFA{
 		if (deviceID != null) {
 			deviceIDs.put(username, deviceID);
 		}
-		
+		// added facial recognisation part.
 		if(faceRecognised !=null && faceid != null) {
 			faceRecognised.put(username, faceid);
 		}
-		//TODO: Add whether user wants to add facial recognition here
-		// similar to device ids
-		//faceRecognised.put(username, facialId);
 	}
 
 	/**
@@ -278,8 +277,6 @@ public class MFA{
 				authenticationStatus.put(username, AuthenticationStatus.DOUBLE);
 			}
 		}
-		System.out.println("Authentication status is 1: "+authenticationStatus.get(username));
-		System.out.println("Authentication status is 2: "+authenticationStatus.get(deviceID));
 		return authenticationStatus.get(username);
 	}
 
@@ -421,6 +418,10 @@ public class MFA{
 
 	}
 
+	/**
+ 	* checks if the facial recognition is enabled.
+  	* TODO: should be of type boolean
+	*/
 	void facialRecogniation(String username) {
 		//Not implemented
 
