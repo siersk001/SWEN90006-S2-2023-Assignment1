@@ -222,6 +222,26 @@ public class MFA{
 		return authenticationStatus.get(username);
 	}
 
+	/**
+	 * only used when the facerecognaition is enabled or needs to be enabled.
+	 *
+	 * If the user has registered a device, send a push notification
+	 * to that device and registers for the facerecognition
+	 *
+	 * @param username   the username
+	 * @param password   the password
+  	 * @param deviceid   the device that needs to be registered
+    	 * @param faceid     the faceid of the face that is registered
+	 *
+	 * @return NONE if and only if the username does not exist or the
+	 *           password is incorrect
+	 *         SINGLE if and only if the username and password are correct
+  	 *	  DOUBLE when the device is registered
+    	 *	   TRIPLE when teh facerecginsed is enabled
+	 *
+	 * Assumption: username, password, deviceid and steps are non-null
+	 */
+
 	public AuthenticationStatus login(String username, String password, String deviceId, String faceId)
 			throws NoSuchUserException, IncorrectPasswordException, IncorrectDeviceIDException, FaceMismatchException {
 		if (checkUsernamePassword(username, password)) {
@@ -236,12 +256,10 @@ public class MFA{
 			}
 
 			if (twoFactor == AuthenticationStatus.DOUBLE) {
-				//TODO: Add for facial recognition / third factor Auth
 				facialRecogniation(username);
 				AuthenticationStatus threeFactor =faceRegonised(username,deviceId, faceId );
 				authenticationStatus.put(username, threeFactor);
 			}
-
 		}
 
 		return authenticationStatus.get(username);
@@ -286,7 +304,7 @@ public class MFA{
 	 *
 	 * @param username
 	 * @param deviceID
-	 * @param faceMatch
+	 * @param faceId
 	 * @return
 	 * @throws NoSuchUserException
 	 * @throws IncorrectDeviceIDException
